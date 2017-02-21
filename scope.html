@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../angular-1.6.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<!-- View(视图), 即 HTML -->
+	<div>
+		<p>{{name}}</p>
+	</div>
+	<br>
+	<div>
+		<input type="text" name="name" ng-model="name">
+		<h1>{{greeting}}</h1>
+		<button ng-click="sayHello()">点我</button>
+		<button ng-click="sayBye()">再见</button>
+	</div>
+
+	<script type="text/javascript">
+		/**
+		* myApp Module
+		*
+		* Description
+		*/
+		/*Model(模型), 当前视图中可用的数据*/
+		angular.module('myApp', [])
+		/*Controller(控制器), 即 JavaScript 函数，可以添加或修改属性*/
+		/*scope是模型,它是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用*/
+		.controller('myCtrl', ['$scope', function(a){
+			a.name = "bmw";
+			a.sayHello = function(){
+				a.greeting = 'Hello ' + a.name + ' !';
+			}
+			a.sayBye = function(){
+				
+			}
+		}])
+	</script>
+</body>
+</html>

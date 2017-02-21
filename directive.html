@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../angular-1.6.2/angular.min.js"></script>
+</head>
+<body ng-app="dzwApp">
+	<div ng-init="world='dzw'">hello {{world}}</div>
+	<div>
+		<p><input type="text" name="" ng-model="world2"></p>
+		<p>hello {{world2}}</p>
+	</div>
+	<div ng-init="names=['Jani','Hege','Kai']">
+	  <p>使用 ng-repeat 来循环数组</p>
+	  <ul>
+	    <li ng-repeat="x in names">
+	      {{ x }}
+	    </li>
+	  </ul>
+	</div>
+	<div dzw-directive>
+		
+	</div>
+	<dzw-directive></dzw-directive>
+	<div class="dzw-directive"></div>
+	<script type="text/javascript">
+		/**
+		* dzwApp Module
+		*
+		* Description
+		*/
+		angular.module('dzwApp', []).directive('dzwDirective', [function(){
+			// Runs during compile
+			return {
+				// name: '',
+				// priority: 1,
+				// terminal: true,
+				// scope: {}, // {} = isolate, true = child, false/undefined = no change
+				// controller: function($scope, $element, $attrs, $transclude) {},
+				// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+				restrict: 'AEC', // E = Element, A = Attribute, C = Class, M = Comment
+				template: "<h1>dzw 自定义指令</h1>",
+				// templateUrl: '',
+				// replace: true,
+				// transclude: true,
+				// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+				// link: function($scope, iElm, iAttrs, controller) {
+					
+				// }
+			};
+		}]);
+	</script>
+</body>
+</html>
